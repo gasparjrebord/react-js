@@ -1,3 +1,8 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    }
 header {
     background-color: bisque;
     display: flex;
@@ -49,4 +54,28 @@ li, a{
 }
 .cartTitle {
     margin: 0;
+}
+.itemListContainer {
+    background-color: beige;
+    margin: 2.5% 5% 2.5% 5%;
+    height: fit-content;
+    align-items: center;
+    justify-content: center;
+}
+.item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 1% ;
+    background-color: white;
+    width: 15%;
+    height: 20rem;
+}
+.itemImg {
+    width: 90%;
+    margin: 5%;
+}
+.itemDescription {
+    margin: 5%;
 }

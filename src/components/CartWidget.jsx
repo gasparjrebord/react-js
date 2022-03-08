@@ -4,7 +4,7 @@ import CartIcon from '../assets/images/cart.png'
 
 
 const CartWidget = () => {
-    const [show, setShow] = useState(true);
+    const [show, setShow] = useState(false);
     return <>
         <img className='cartIcon' onClick={() => { setShow(!show); }} src={CartIcon} alt="cart-icon" />
         {show ? <div className='itemsOnCart'>
