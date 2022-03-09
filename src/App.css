@@ -79,3 +79,23 @@ li, a{
 .itemDescription {
     margin: 5%;
 }
+.itemTitle {
+    margin: 5%;
+}
+.itemPrice {
+    margin: 5%;
+}
+.itemCounter {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 3.5rem;
+    height: 2rem;
+    margin: 5%;
+}
+.counterPlusMinus {
+    width: 1rem;
+    height: 1rem;
+    align-items: center;
+    background-color: antiquewhite;
+}

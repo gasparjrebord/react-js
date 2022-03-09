@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import CartIcon from '../assets/images/cart.png'
+import CartIcon from '../assets/images/cart.png';
 
 
 
@@ -13,6 +13,6 @@ const CartWidget = () => {
             </div>
         </div> : null}
     </>
-}
+};
 export default CartWidget;
 
