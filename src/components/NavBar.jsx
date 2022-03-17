@@ -3,17 +3,17 @@ import CartWidget from './CartWidget';
 const NavBar = () => {
     return (
         <header>
-            <h1 className='logo'>MiTienda</h1>
+            <h1 className='logo'>TradingCave</h1>
             <div className='menu-container'>
                 <ul className='menu'>
                     <li>
-                        <a href=''>Sobre nosotros</a>
+                        <a href=''>About us</a>
                     </li>
                     <li>
-                        <a href=''>Categorias</a>
+                        <a href=''>Categories</a>
                     </li>
                     <li>
-                        <a href=''>Mi cuenta</a>
+                        <a href=''>My account</a>
                     </li>
                     <li>
                         <CartWidget />

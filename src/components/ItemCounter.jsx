@@ -24,11 +24,11 @@ const ItemCounter = () => {
     return (
         <div className='itemCounterContainer'>
             <div className='itemCounter'>
-                <a className='btnPlusMinus' onClick={minus}>-</a>
+                <button className='btnPlusMinus' onClick={minus}>-</button>
                 <span>{counter}</span>
-                <a className='btnPlusMinus' onClick={plus}>+</a>
+                <button className='btnPlusMinus' onClick={plus}>+</button>
             </div>
-            <a href='#' className='btnAddToCart' onClick={addToCart}>Add to cart</a>
+            <button className='btnAddToCart' onClick={addToCart}>Add to cart</button>
         </div>
     );
 };
