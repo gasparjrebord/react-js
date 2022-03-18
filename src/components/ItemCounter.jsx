@@ -1,31 +1,20 @@
 import React, { useState } from 'react';
 
-const ItemCounter = () => {
-    const [counter, setCounter] = useState(1);
-    let stock = 5;
+const ItemCounter = ({ stock = 10, addToCart }) => {
+    const [quantity, setQuantity] = useState(1);
 
     const plus = () => {
-        if (counter < stock) {
-            //console.log('suma')
-            setCounter(counter + 1)
-        }
+        quantity < stock && setQuantity(quantity + 1)
     };
     const minus = () => {
-        if (counter > 1) {
-            //console.log('resta')
-            setCounter(counter - 1)
-        }
-    };
-
-    const addToCart = () => {
-        console.log(counter)
+        quantity > 1 && setQuantity(quantity - 1)
     };
 
     return (
         <div className='itemCounterContainer'>
             <div className='itemCounter'>
                 <button className='btnPlusMinus' onClick={minus}>-</button>
-                <span>{counter}</span>
+                <span>{quantity}</span>
                 <button className='btnPlusMinus' onClick={plus}>+</button>
             </div>
             <button className='btnAddToCart' onClick={addToCart}>Add to cart</button>

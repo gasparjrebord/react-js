@@ -1,11 +1,22 @@
-import React from 'react';
-import { Link } from 'react-router-dom'
+import React from 'react'
 import ItemCounter from './ItemCounter';
 
-const Item = ({ id, name, type, description, atk, def, race, image }) => {
+const ItemDetail = ({ id, name, type, description, atk, def, race, image }) => {
+
+
+    const addToCart = () => {
+        const cardToCart = {
+            id,
+            name,
+            image
+        }
+
+        console.log(cardToCart)
+    };
+
     return (
         <div className='item'>
-            <Link to={`/info/${id}`}><img className='itemImg' src={image} alt="" /></Link>
+            <img className='itemImg' src={image} alt="" />
             <div className='itemDescription'>
                 <h5 className='itemTitle'>{name}</h5>
                 <div className='itemStats'>
@@ -13,10 +24,11 @@ const Item = ({ id, name, type, description, atk, def, race, image }) => {
                     <p>ATK/{atk}  -  DEF/{def}</p>
                 </div>
                 <p className='itemDesc'>{description}</p>
-                <ItemCounter />
+                <ItemCounter
+                    addToCart={addToCart}
+                />
             </div>
         </div>
     )
 };
-export default Item;
-
+export default ItemDetail;
