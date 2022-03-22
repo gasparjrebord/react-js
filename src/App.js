@@ -35,7 +35,6 @@ function App() {
         <Route path="/info/:cardId" element={<ItemDetailContainer />} />
         <Route path="/about-us" element={<AboutUs />} />
         <Route path="/my-account" element={<MyAccount />} />
-
         <Route path="*" element={<Navigate to="/" />} />
 
       </Routes>

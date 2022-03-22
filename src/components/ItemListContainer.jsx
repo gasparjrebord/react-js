@@ -19,7 +19,7 @@ function ItemListContainer() {
                 if (!categoryId) {
                     setCardList(cardList.data)
                 } else {
-                    setCardList(cardList.data.filter((cards) => cards.category === categoryId))
+                    setCardList(cardList.data.filter((cards) => cards.type === categoryId))
                 }
             })
             .catch((err) => {
@@ -31,7 +31,7 @@ function ItemListContainer() {
     }
     useEffect(() => {
         getCards()
-    }, [])
+    }, [categoryId])
 
 
     return (

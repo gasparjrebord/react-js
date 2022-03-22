@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom'
 import ItemCounter from './ItemCounter';
 
-const Item = ({ id, name, type, description, atk, def, race, image }) => {
+const Item = ({ id, name, type, atk, def, race, image }) => {
     return (
         <div className='item'>
             <Link to={`/info/${id}`}><img className='itemImg' src={image} alt="" /></Link>
@@ -12,7 +12,6 @@ const Item = ({ id, name, type, description, atk, def, race, image }) => {
                     <p>[{race}  -  {type}]</p>
                     <p>ATK/{atk}  -  DEF/{def}</p>
                 </div>
-                <p className='itemDesc'>{description}</p>
                 <ItemCounter />
             </div>
         </div>

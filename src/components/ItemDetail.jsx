@@ -1,7 +1,7 @@
 import React from 'react'
 import ItemCounter from './ItemCounter';
 
-const ItemDetail = ({ id, name, type, description, atk, def, race, image }) => {
+const ItemDetail = ({ id, name, type, desc, atk, def, race, image }) => {
 
 
     const addToCart = () => {
@@ -15,15 +15,15 @@ const ItemDetail = ({ id, name, type, description, atk, def, race, image }) => {
     };
 
     return (
-        <div className='item'>
-            <img className='itemImg' src={image} alt="" />
-            <div className='itemDescription'>
-                <h5 className='itemTitle'>{name}</h5>
-                <div className='itemStats'>
+        <div className='itemDetail'>
+            <img className='itemDetailImg' src={image} alt="" />
+            <div className='itemDetailDescription'>
+                <h5 className='itemDetailTitle'>{name}</h5>
+                <div className='itemDetailStats'>
                     <p>[{race}  -  {type}]</p>
                     <p>ATK/{atk}  -  DEF/{def}</p>
                 </div>
-                <p className='itemDesc'>{description}</p>
+                <p className='itemDetailEffect'>{desc}</p>
                 <ItemCounter
                     addToCart={addToCart}
                 />

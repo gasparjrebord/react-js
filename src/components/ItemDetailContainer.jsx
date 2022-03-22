@@ -30,7 +30,7 @@ const ItemDetailContainer = () => {
             {
                 loading
                     ? <h2>Cargando...</h2>
-                    : <ItemDetail {...card} image={card.card_images[0].image_url} />
+                    : <div className='itemDetailContainer'><ItemDetail {...card} image={card.card_images[0].image_url} /></div>
             }
         </>
     )
