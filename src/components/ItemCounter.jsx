@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const ItemCounter = ({ stock = 10, addToCart }) => {
+const ItemCounter = ({ stock = 10, id, name, image }) => {
     const [quantity, setQuantity] = useState(1);
 
     const plus = () => {
@@ -8,6 +8,17 @@ const ItemCounter = ({ stock = 10, addToCart }) => {
     };
     const minus = () => {
         quantity > 1 && setQuantity(quantity - 1)
+    };
+
+    const addToCart = () => {
+        const cardToCart = {
+            id,
+            name,
+            image,
+            quantity
+        }
+
+        console.log(cardToCart)
     };
 
     return (

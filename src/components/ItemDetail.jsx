@@ -4,15 +4,7 @@ import ItemCounter from './ItemCounter';
 const ItemDetail = ({ id, name, type, desc, atk, def, race, image }) => {
 
 
-    const addToCart = () => {
-        const cardToCart = {
-            id,
-            name,
-            image
-        }
-
-        console.log(cardToCart)
-    };
+    
 
     return (
         <div className='itemDetail'>
@@ -24,9 +16,7 @@ const ItemDetail = ({ id, name, type, desc, atk, def, race, image }) => {
                     <p>ATK/{atk}  -  DEF/{def}</p>
                 </div>
                 <p className='itemDetailEffect'>{desc}</p>
-                <ItemCounter
-                    addToCart={addToCart}
-                />
+                <ItemCounter id={id} name={name} image={image}/>
             </div>
         </div>
     )
