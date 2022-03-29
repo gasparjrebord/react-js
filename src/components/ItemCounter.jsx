@@ -1,6 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
+import {CartContext} from "./CartContext"
 
 const ItemCounter = ({ stock = 10, id, name, image }) => {
+
+    const value =useContext(CartContext);
+    console.log(value)
+
     const [quantity, setQuantity] = useState(1);
 
     const plus = () => {
