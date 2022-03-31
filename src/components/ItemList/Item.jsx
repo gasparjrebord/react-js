@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
-import ItemCounter from './ItemCounter';
+import ItemCounter from '../Counter/ItemCounter';
 
 const Item = ({ id, name, type, atk, def, race, image }) => {
     return (

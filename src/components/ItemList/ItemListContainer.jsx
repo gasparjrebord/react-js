@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import ItemList from './ItemList';
-import { getCardsData } from "../App.js";
+import { getCardsData } from "../../App";
 import { useParams } from 'react-router-dom';
 
 

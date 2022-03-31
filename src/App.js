@@ -1,8 +1,8 @@
 import React from 'react';
 import './App.css';
-import NavBar from './components/NavBar';
-import ItemListContainer from './components/ItemListContainer';
-import ItemDetailContainer from './components/ItemDetailContainer';
+import NavBar from './components/NavBar/NavBar';
+import ItemListContainer from './components/ItemList/ItemListContainer';
+import ItemDetailContainer from './components/ItemDetail/ItemDetailContainer';
 import AboutUs from './components/AboutUs';
 import MyAccount from './components/MyAccount';
 import {
@@ -11,7 +11,7 @@ import {
   Route,
   Navigate
 } from "react-router-dom";
-import { Context } from "./components/Context";
+import { CustomCartContext } from "./components/Context/CustomCartContext";
 
 const APIURL = "https://db.ygoprodeck.com/api/v7/cardinfo.php?archetype=Blue-Eyes"
 
@@ -26,7 +26,7 @@ export const getCardsData = () => {
 
 function App() {
   return <>
-    <Context.Provider>
+    <CustomCartContext>
       <BrowserRouter>
         <NavBar />
         <Routes>
@@ -38,7 +38,7 @@ function App() {
           <Route path="*" element={<Navigate to="/" />} />
         </Routes>
       </BrowserRouter>
-    </Context.Provider>
+    </CustomCartContext>
   </>
 };
 export default App;
