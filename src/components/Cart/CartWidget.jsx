@@ -1,21 +1,17 @@
-import React, { useState, useContext } from 'react';
-import CartIcon from '../../assets/images/cart.png';
+import React, { useContext } from 'react'
 import { CartContext } from '../Context/CartContext';
 
 
-
-const CartWidget = () => {
-    const [show, setShow] = useState(false);
-    const cartContext = useContext(CartContext);
-    console.log("Products in cart: ", cartContext.productsInCart);
-    return <>
-        <img className='cartIcon' onClick={() => { setShow(!show); }} src={CartIcon} alt="cart-icon" />
-        {show ? <div className='itemsOnCart'>
-            <div className='cartHeader'>
-                <h3 className='cartTitle'>Articulos en el carrito:</h3>
-            </div>
-        </div> : null}
-    </>
-};
+const CartWidget = ({card, quantity}) => {
+    const cartContext = useContext(CartContext)
+  return (
+    <div className='itemWidgetContainer'>
+        <img src={card.card_images[0].image_url_small} alt="" className='itemWidgetImage'/>
+        <h6 className='itemWidgetName'>{card.name}</h6>
+        <p className='itemWidgetPrice'>${card.card_prices[0].ebay_price}</p>
+        <p className='itemWidgetQuantity'>x {quantity}</p>
+        <button className='btnRemove' onClick={()=>cartContext.removeItem(card.id)}>X</button>
+    </div>
+  )
+}
 export default CartWidget;
-

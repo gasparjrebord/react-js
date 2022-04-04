@@ -1,12 +1,11 @@
 import React, { useState, useContext } from 'react';
 import {CartContext} from "../Context/CartContext"
 
-const ItemCounter = ({ id, name, image }) => {
+const ItemCounter = ({ card }) => {
     const cartContext = useContext(CartContext);
-    console.log("Cart Context: ", cartContext);
 
     const [stock, setStock] = useState(10);
-    const [productsInCart, setProductsInCart] = useState(0);
+    
     const [quantity, setQuantity] = useState(1);
 
     const plus = () => {
@@ -17,17 +16,9 @@ const ItemCounter = ({ id, name, image }) => {
     };
 
     const addToCart = () => {
-        const cardToCart = {
-            id,
-            name,
-            image,
-            quantity
-        }
-        console.log(cardToCart);
         
-        setProductsInCart(quantity);
         setStock(stock - quantity);
-        cartContext.addToCart(cardToCart);
+        cartContext.addToCart(card,quantity);
     };
 
     return (

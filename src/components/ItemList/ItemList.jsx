@@ -6,7 +6,10 @@ function ItemList({ cardList }) {
     return (
         <div className='itemList'>
             {cardList?.map((cards) =>
-                <Item key={cards.id} {...cards} image={cards.card_images[0].image_url} />)}
+                <Item 
+                key={cards.id} 
+                card={cards}
+                />)}
         </div>
     )
 };

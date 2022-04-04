@@ -1,22 +1,27 @@
 import React from 'react'
+import { Link } from 'react-router-dom';
 import ItemCounter from '../Counter/ItemCounter';
 
-const ItemDetail = ({ id, name, type, desc, atk, def, race, image }) => {
+const ItemDetail = ({ card }) => {
 
 
     
 
     return (
         <div className='itemDetail'>
-            <img className='itemDetailImg' src={image} alt="" />
+            <img className='itemDetailImg' src={card.card_images[0].image_url} alt="" />
             <div className='itemDetailDescription'>
-                <h5 className='itemDetailTitle'>{name}</h5>
+                <h5 className='itemDetailTitle'>{card.name}</h5>
                 <div className='itemDetailStats'>
-                    <p>[{race}  -  {type}]</p>
-                    <p>ATK/{atk}  -  DEF/{def}</p>
+                    <p>[{card.race}  -  {card.type}]</p>
+                    <p>ATK/{card.atk}  -  DEF/{card.def}</p>
                 </div>
-                <p className='itemDetailEffect'>{desc}</p>
-                <ItemCounter id={id} name={name} image={image}/>
+                <p className='itemDetailEffect'>{card.desc}</p>
+              
+                    <ItemCounter card={card}/>
+                    <Link to="/cart" className='btnCheckout'>Finalizar compra</Link>
+                
+                
             </div>
         </div>
     )

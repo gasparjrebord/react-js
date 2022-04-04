@@ -11,7 +11,9 @@ import {
   Route,
   Navigate
 } from "react-router-dom";
-import { CustomCartContext } from "./components/Context/CustomCartContext";
+import  CustomCartContext  from "./components/Context/CustomCartContext";
+
+import CartContainer from './components/Cart/CartContainer';
 
 const APIURL = "https://db.ygoprodeck.com/api/v7/cardinfo.php?archetype=Blue-Eyes"
 
@@ -35,6 +37,7 @@ function App() {
           <Route path="/:categoryId/:cardId" element={<ItemDetailContainer />} />
           <Route path="/about-us" element={<AboutUs />} />
           <Route path="/my-account" element={<MyAccount />} />
+          <Route path="/cart" element={<CartContainer/>}/>
           <Route path="*" element={<Navigate to="/" />} />
         </Routes>
       </BrowserRouter>

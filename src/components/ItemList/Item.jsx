@@ -2,17 +2,17 @@ import React from 'react';
 import { Link } from 'react-router-dom'
 import ItemCounter from '../Counter/ItemCounter';
 
-const Item = ({ id, name, type, atk, def, race, image }) => {
+const Item = ({ card }) => {
     return (
         <div className='item'>
-            <Link to={`/${type}/${id}`}><img className='itemImg' src={image} alt="" /></Link>
+            <Link to={`/${card.type}/${card.id}`}><img className='itemImg' src={card.card_images[0].image_url} alt="" /></Link>
             <div className='itemDescription'>
-                <h5 className='itemTitle'>{name}</h5>
+                <h5 className='itemTitle'>{card.name}</h5>
                 <div className='itemStats'>
-                    <p>[{race}  -  {type}]</p>
-                    <p>ATK/{atk}  -  DEF/{def}</p>
+                    <p>[{card.race}  -  {card.type}]</p>
+                    <p>ATK/{card.atk}  -  DEF/{card.def}</p>
                 </div>
-                <ItemCounter id={id} name={name} image={image}/>
+                <ItemCounter card={card}/>
             </div>
         </div>
     )
