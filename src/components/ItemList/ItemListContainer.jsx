@@ -1,25 +1,26 @@
 import React, { useState, useEffect } from 'react';
-import ItemList from './ItemList';
-import { getCardsData } from "../../App";
 import { useParams } from 'react-router-dom';
+import ItemList from './ItemList';
+import { getData } from '../../App';
+
 
 
 
 function ItemListContainer() {
-    const [cardList, setCardList] = useState([])
+    const [products, setProducts] = useState([])
     const [loading, setLoading] = useState(false)
 
     const { categoryId } = useParams()
 
     const getCards = () => {
         setLoading(true)
-        getCardsData()
-            .then((resolve) => resolve.json())
-            .then((cardList) => {
+        getData()
+            .then((res) => {
+                console.log(res)
                 if (!categoryId) {
-                    setCardList(cardList.data)
+                    setProducts(res)
                 } else {
-                    setCardList(cardList.data.filter((cards) => cards.type === categoryId))
+                    setProducts(res?.filter((cards) => cards.type === categoryId))
                 }
             })
             .catch((err) => {
@@ -40,7 +41,7 @@ function ItemListContainer() {
                 loading
                     ? <h2>Loading...</h2>
                     : <div className='itemListContainer'>
-                        <ItemList cardList={cardList} />
+                        <ItemList products={products} />
                     </div>
             }
         </>

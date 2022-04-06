@@ -2,7 +2,7 @@ import React from 'react';
 import ItemDetail from './ItemDetail';
 import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
-import { getCardsData } from "../../App";
+import { getData } from "../../App";
 
 const ItemDetailContainer = () => {
     const [card, setCard] = useState(null)
@@ -13,17 +13,14 @@ const ItemDetailContainer = () => {
 
     useEffect(() => {
         setLoading(true)
-
-        getCardsData()
-            .then((resolve) => resolve.json())
-            .then((card) => {
-                setCard(card.data.find((cards) => cards.id === Number(cardId)))
+        getData()
+            .then((res) => {
+                setCard(res?.find((cards) => cards.id === cardId))
             })
             .finally(() => {
                 setLoading(false)
             })
-
-    }, [])
+    }, [cardId])
 
     return (
         <>
@@ -31,7 +28,7 @@ const ItemDetailContainer = () => {
                 loading
                     ? <h2>Cargando...</h2>
                     : <div className='itemDetailContainer'>
-                        <ItemDetail key={card.id} card={card}/>
+                        <ItemDetail key={cardId} card={card}/>
                     </div>
             }
         </>

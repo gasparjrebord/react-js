@@ -1,5 +1,7 @@
 import React from 'react';
 import './App.css';
+import { collection, getDocs, getDoc, doc } from 'firebase/firestore';
+import {db}  from './utils/firebase';
 import NavBar from './components/NavBar/NavBar';
 import ItemListContainer from './components/ItemList/ItemListContainer';
 import ItemDetailContainer from './components/ItemDetail/ItemDetailContainer';
@@ -12,19 +14,24 @@ import {
   Navigate
 } from "react-router-dom";
 import  CustomCartContext  from "./components/Context/CustomCartContext";
-
 import CartContainer from './components/Cart/CartContainer';
 
-const APIURL = "https://db.ygoprodeck.com/api/v7/cardinfo.php?archetype=Blue-Eyes"
 
-export const getCardsData = () => {
-  return new Promise((resolve, reject) => {
-    setTimeout(() => {
-      resolve(fetch(`${APIURL}`))
-    }, 1500);
-  })
+
+
+export const getData = async () => {
+
+  const query = collection(db, "items");
+
+  const response = await getDocs(query);
+
+  console.log("respuesta", response);
+
+  const dataItem = response.docs.map((doc) => {
+    return{ id: doc.id, ...doc.data()};
+  });
+  return dataItem;
 }
-
 
 function App() {
   return <>

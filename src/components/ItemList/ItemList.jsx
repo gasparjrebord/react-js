@@ -2,10 +2,11 @@ import React from 'react';
 import Item from './Item';
 
 
-function ItemList({ cardList }) {
+function ItemList({ products }) {
+    console.log(products)
     return (
         <div className='itemList'>
-            {cardList?.map((cards) =>
+            {products?.map((cards) =>
                 <Item 
                 key={cards.id} 
                 card={cards}

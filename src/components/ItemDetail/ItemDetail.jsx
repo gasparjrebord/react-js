@@ -9,7 +9,7 @@ const ItemDetail = ({ card }) => {
 
     return (
         <div className='itemDetail'>
-            <img className='itemDetailImg' src={card.card_images[0].image_url} alt="" />
+            <img className='itemDetailImg' src={card.image} alt="" />
             <div className='itemDetailDescription'>
                 <h5 className='itemDetailTitle'>{card.name}</h5>
                 <div className='itemDetailStats'>
