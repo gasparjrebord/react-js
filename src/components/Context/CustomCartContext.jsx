@@ -32,9 +32,13 @@ const CustomCartContext = ({children}) => {
       const newProducts = productsInCart.filter(product=>product.card.id !== id)
       setProductsInCart(newProducts)
     }
+    const getTotalPrice = () => {
+      const totalPrice = productsInCart.reduce((acc, obj) => acc+(obj.quantity*obj.card.price),0)
+      return totalPrice;
+    }
 
   return (
-    <CartContext.Provider value={{productsInCart, addToCart, removeItem}}>
+    <CartContext.Provider value={{productsInCart, addToCart, removeItem, getTotalPrice}}>
         {children}
     </CartContext.Provider>
   )
