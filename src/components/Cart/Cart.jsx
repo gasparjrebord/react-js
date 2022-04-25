@@ -13,7 +13,7 @@ const Cart = ({card, quantity}) => {
         <h6 className='cartItemName'>{card.name}</h6>
         <p className='cartItemPrice'>${card.price}</p>
         <p className='cartItemQuantity'>x {quantity}</p>
-        <button className='btnRemove' onClick={()=>cartContext.removeItem(card.id)}>X</button>
+        <button className='btn' onClick={()=>cartContext.removeItem(card.id)}>X</button>
     </div>
   </>
 }

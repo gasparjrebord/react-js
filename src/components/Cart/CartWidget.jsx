@@ -10,7 +10,7 @@ const CartWidget = ({card, quantity}) => {
         <h6 className='itemWidgetName'>{card.name}</h6>
         <p className='itemWidgetPrice'>${card.price}</p>
         <p className='itemWidgetQuantity'>x {quantity}</p>
-        <button className='btnRemove' onClick={()=>cartContext.removeItem(card.id)}>X</button>
+        <button className='btn' onClick={()=>cartContext.removeItem(card.id)}>X</button>
     </div>
   )
 }

@@ -3,13 +3,11 @@ import {CartContext} from "../Context/CartContext"
 
 const ItemCounter = ({ card }) => {
     const cartContext = useContext(CartContext);
-
-    const [stock, setStock] = useState(10);
     
     const [quantity, setQuantity] = useState(1);
 
     const plus = () => {
-        quantity < stock && setQuantity(quantity + 1)
+        quantity < card.stock && setQuantity(quantity + 1)
     };
     const minus = () => {
         quantity > 1 && setQuantity(quantity - 1)
@@ -17,18 +15,17 @@ const ItemCounter = ({ card }) => {
 
     const addToCart = () => {
         
-        setStock(stock - quantity);
         cartContext.addToCart(card,quantity);
     };
 
     return (
         <div className='itemCounterContainer'>
             <div className='itemCounter'>
-                <button className='btnPlusMinus' onClick={minus}>-</button>
+                <button className='btn' onClick={minus}>-</button>
                 <span>{quantity}</span>
-                <button className='btnPlusMinus' onClick={plus}>+</button>
+                <button className='btn' onClick={plus}>+</button>
             </div>
-            <button className='btnAddToCart' onClick={addToCart}>Add to cart</button>
+            <button className='btn' onClick={addToCart}>Add to cart</button>
         </div>
     );
 };

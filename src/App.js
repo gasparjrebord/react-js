@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import { collection, getDocs, getDoc, doc } from 'firebase/firestore';
+import { collection, getDocs } from 'firebase/firestore';
 import {db}  from './utils/firebase';
 import NavBar from './components/NavBar/NavBar';
 import ItemListContainer from './components/ItemList/ItemListContainer';
@@ -16,17 +16,9 @@ import {
 import  CustomCartContext  from "./components/Context/CustomCartContext";
 import CartContainer from './components/Cart/CartContainer';
 
-
-
-
 export const getData = async () => {
-
   const query = collection(db, "items");
-
   const response = await getDocs(query);
-
-  console.log("respuesta", response);
-
   const dataItem = response.docs.map((doc) => {
     return{ id: doc.id, ...doc.data()};
   });

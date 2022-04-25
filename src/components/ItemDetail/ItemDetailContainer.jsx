@@ -18,7 +18,9 @@ const ItemDetailContainer = () => {
                 setCard(res?.find((cards) => cards.id === cardId))
             })
             .finally(() => {
-                setLoading(false)
+                setTimeout(() => {
+                    setLoading(false)
+                }, 500);
             })
     }, [cardId])
 
@@ -26,7 +28,7 @@ const ItemDetailContainer = () => {
         <>
             {
                 loading
-                    ? <h2>Cargando...</h2>
+                    ? <img src="https://c.tenor.com/On7kvXhzml4AAAAi/loading-gif.gif" alt="loading-spin" className='loadingSpin'/>
                     : <div className='itemDetailContainer'>
                         <ItemDetail key={cardId} card={card}/>
                     </div>

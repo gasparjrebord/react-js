@@ -7,6 +7,9 @@ body {
   background-image: url("./assets/images/jeroglificos.jpg");
 }
 
+
+
+/* NavBar Page Styles */
 header {
   background-color: #e6ccb2;
   display: flex;
@@ -32,13 +35,11 @@ a {
   display: none;
   background-color: inherit;
 }
-
 .menu li:hover ul {
   background-color: #e6ccb2;
   display: block;
   position: absolute;
 }
-
 li li {
   margin: 1rem 1rem 1rem 0;
 }
@@ -58,6 +59,8 @@ ul {
 .cartIcon {
   cursor: pointer;
 }
+
+/* CartWidget Styles *//* AboutUs Page Styles */
 .cartWidgetContainer {
   position: absolute;
   top: 4rem;
@@ -82,6 +85,11 @@ ul {
 .cartWidgetTitle {
   margin: 0;
 }
+.cartWidgetItems{
+  max-height: 25rem;
+  overflow: hidden; 
+  overflow-y: scroll;
+}
 .itemWidgetContainer {
   margin: 0.2rem;
   padding: 0.5rem;
@@ -96,7 +104,8 @@ ul {
 .itemWidgetName {
   font-size: 1rem;
 }
-.btnRemove {
+
+.btn {
   box-shadow: 0px 1px 0px 0px #1c1b18;
   background: linear-gradient(to bottom, #e6ccb2 5%, #ddb892 100%);
   background-color: #e6ccb2;
@@ -111,7 +120,19 @@ ul {
   margin: 5px;
   text-decoration: none;
   text-shadow: 0px 1px 0px #ffffff;
+  text-align: center;
 }
+.btn:hover {
+  background: linear-gradient(to bottom, #ddb892 5%, #e6ccb2 100%);
+  background-color: #ddb892;
+}
+.btn:active {
+  position: relative;
+  top: 1px;
+}
+
+
+/* Main Page Styles */
 .itemListContainer {
   background-color: #ddb892;
   margin: 2.5% 5% 0 5%;
@@ -170,55 +191,10 @@ ul {
   width: 4rem;
   height: 2rem;
 }
-.btnPlusMinus {
-  box-shadow: 0px 1px 0px 0px #1c1b18;
-  background: linear-gradient(to bottom, #e6ccb2 5%, #ddb892 100%);
-  background-color: #e6ccb2;
-  border-radius: 15px;
-  border: 1px solid #7f5539;
-  display: inline-block;
-  cursor: pointer;
-  color: #9c6644;
-  font-size: 14px;
-  font-weight: bold;
-  padding: 7px 10px;
-  margin: 5px;
-  text-decoration: none;
-  text-shadow: 0px 1px 0px #ffffff;
-}
-.btnPlusMinus:hover {
-  background: linear-gradient(to bottom, #ddb892 5%, #e6ccb2 100%);
-  background-color: #ddb892;
-}
-.btnPlusMinus:active {
-  position: relative;
-  top: 1px;
-}
 
-.btnAddToCart {
-  box-shadow: 0px 1px 0px 0px #1c1b18;
-  background: linear-gradient(to bottom, #e6ccb2 5%, #ddb892 100%);
-  background-color: #e6ccb2;
-  border-radius: 15px;
-  border: 1px solid #7f5539;
-  display: inline-block;
-  cursor: pointer;
-  color: #9c6644;
-  font-size: 12px;
-  font-weight: bold;
-  padding: 10px 14px;
-  text-decoration: none;
-  text-shadow: 0px 1px 0px #ffffff;
-}
-.btnAddToCart:hover {
-  background: linear-gradient(to bottom, #ddb892 5%, #e6ccb2 100%);
-  background-color: #ddb892;
-}
-.btnAddToCart:active {
-  position: relative;
-  top: 1px;
-}
 
+
+/* ItemDetail Page Styles */
 .itemDetailContainer {
   display: flex;
   background-color: beige;
@@ -265,6 +241,7 @@ ul {
   font-size: 0.8rem;
 }
 
+/* CheckOut Page Styles */
 .cartContainer{
   display: flex;
   justify-content: space-between;
@@ -287,6 +264,21 @@ ul {
   border-bottom-right-radius: 20px;
   background-color: #e6ccb2;
 }
+.cartItems {
+  height: 40rem;
+  overflow: hidden; 
+  overflow-y: scroll;
+}
+.cartFooter {
+  display: flex;
+  height: 5rem;
+  width: 20rem;
+  align-items: center;
+  justify-content: center;
+  padding: 2%;
+  border-top-right-radius: 20px;
+  background-color: #e6ccb2;
+}
 .cartItemContainer {
   margin: 0.2rem;
   padding: 0.5rem;
@@ -303,24 +295,10 @@ ul {
   font-size: 1.2rem;
 }
 .btnCheckout{
-  box-shadow: 0px 1px 0px 0px #1c1b18;
-  background: linear-gradient(to bottom, #e6ccb2 5%, #ddb892 100%);
-  background-color: #e6ccb2;
-  border-radius: 15px;
-  border: 1px solid #7f5539;
-  display: inline-block;
-  cursor: pointer;
-  color: #9c6644;
-  font-size: 12px;
-  font-weight: bold;
   padding: 12px 17px;
-  text-decoration: none;
-  text-shadow: 0px 1px 0px #ffffff;
   width: 95%;
-  text-align: center;
   margin: 4% 1% 1% 2%;
 }
-
 .formCartContainer {
   display: flex;
   align-items: center;
@@ -347,7 +325,46 @@ ul {
   height: 2rem;
   margin: 1rem;
 }
-.formCartContainer button {
+
+
+/* MyAccount Page Styles */
+.signUp{
+  display: flex;
+  background-color: beige;
+  margin: 5% 15% 5% 15%;
+  align-items: center;
+  justify-content: center;
+  padding: 2.5rem;
+  border-radius: 1rem;
+  box-shadow: 0px 10px 5px 5px rgba(0, 0, 0, 0.45);
+}
+.signUpContainer{
+  background-color: #e6ccb2;
+  height: 30rem;
+  width: 30rem;
+  padding: 2% 5%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  margin: 5% 10% 5% 10%;
+  border-radius: 1rem;
+}
+.signUpInput{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.signUpInput label {
+  font-weight: 500;
+  text-shadow: #7f5539 1px 1px 0;
+}
+.signUpInput input {
+  border-radius: 0.4rem;
+  width: 75%;
+  height: 2rem;
+  padding: 0.3rem;
+}
+.signUp button {
   box-shadow: 0px 1px 0px 0px #1c1b18;
   background: linear-gradient(to bottom, #e6ccb2 5%, #ddb892 100%);
   background-color: #e6ccb2;
@@ -361,9 +378,56 @@ ul {
   padding: 12px 17px;
   text-decoration: none;
   text-shadow: 0px 1px 0px #ffffff;
-  width: 100%;
+  width: 95%;
   text-align: center;
-  margin-top: 4%;
-  margin: 1rem;
-  width: 65%;
+}
+
+
+.loadingSpin {
+  display: block;
+  margin: 15% auto;
+  width: 4rem;
+}
+
+
+
+/* AboutUs Page Styles */
+.aboutUs {
+  background-color: beige;
+  margin: 10% 5% 10% 5%;
+  width: 90%;
+  height: 20rem;
+  padding: 2%;
+}
+.aboutUs h1, .aboutUs p {
+  font-weight: 500;
+  margin: 2%;
+  text-shadow: #7f5539 1px 1px 0;
+}
+
+/*PopUp Component*/
+.popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.popupContainer {
+  position: relative;
+  padding: 32px;
+  width: 100%;
+  max-width: 640px;
+  background-color: beige;
+  border-radius: 16px;
+  border: 1px solid #7f5539;
+}
+.popupContainer button {
+  position: absolute;
+  top: 16px;
+  right: 16px;
 }

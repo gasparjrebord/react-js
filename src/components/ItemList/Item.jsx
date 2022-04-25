@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import ItemCounter from '../Counter/ItemCounter';
 
 const Item = ({ card }) => {
-    console.log(card)
+    //console.log(card)
     return (
         <div className='item'>
             <Link to={`/${card.type}/${card.id}`}><img className='itemImg' src={card.image} alt="" /></Link>
@@ -16,7 +16,7 @@ const Item = ({ card }) => {
                 <ItemCounter card={card}/>
             </div>
         </div>
-    )
+    ) 
 };
 export default Item;
 

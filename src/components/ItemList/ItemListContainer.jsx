@@ -9,37 +9,33 @@ import { getData } from '../../App';
 function ItemListContainer() {
     const [products, setProducts] = useState([])
     const [loading, setLoading] = useState(false)
-
     const { categoryId } = useParams()
 
-    const getCards = () => {
+    useEffect(() => {
         setLoading(true)
         getData()
-            .then((res) => {
-                console.log(res)
-                if (!categoryId) {
-                    setProducts(res)
-                } else {
-                    setProducts(res?.filter((cards) => cards.type === categoryId))
-                }
-            })
-            .catch((err) => {
-                console.log(err)
-            })
-            .finally(() => {
+        .then((res) => {
+            if (!categoryId) {
+                setProducts(res)
+            } else {
+                setProducts(res?.filter((cards) => cards.type === categoryId))
+            }
+        })
+        .catch((err) => {
+            console.log(err)
+        })
+        .finally(() => {
+            setTimeout(() => {
                 setLoading(false)
-            })
-    }
-    useEffect(() => {
-        getCards()
-    }, [categoryId])
-
+            }, 1000);   
+        })    
+    },[categoryId])
 
     return (
         <>
             {
                 loading
-                    ? <h2>Loading...</h2>
+                    ? <img src="https://c.tenor.com/On7kvXhzml4AAAAi/loading-gif.gif" alt="loading-spin" className='loadingSpin'/>
                     : <div className='itemListContainer'>
                         <ItemList products={products} />
                     </div>

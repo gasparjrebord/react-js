@@ -3,7 +3,6 @@ import Item from './Item';
 
 
 function ItemList({ products }) {
-    console.log(products)
     return (
         <div className='itemList'>
             {products?.map((cards) =>

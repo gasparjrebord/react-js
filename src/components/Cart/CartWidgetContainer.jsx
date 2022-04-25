@@ -18,17 +18,19 @@ const CartWidgetContainer = () => {
             <div className='cartWidgetHeader'>
                 <h3 className='cartWidgetTitle'>Articulos en el carrito:</h3>
             </div>
-            {
-                productsInCart.map(product=>(
-                    <CartWidget 
-                        key={product.card.id} 
-                        card={product.card} 
-                        quantity={product.quantity}
-                    />
-                ))
-            }
-            <div>
-                <Link to="/cart" className='btnCheckout'>Finalizar compra</Link>
+            <div className='cartWidgetItems'>
+                {
+                    productsInCart.map(product=>(
+                        <CartWidget 
+                            key={product.card.id} 
+                            card={product.card} 
+                            quantity={product.quantity}
+                        />
+                    ))
+                }
+            </div>
+            <div className='cartWidgetBtn'>
+                <Link to="/cart" className='btn btnCheckout'>Finalizar compra</Link>
             </div>
             
         </div> 
