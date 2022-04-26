@@ -1,7 +1,7 @@
 import React, { useState, useContext } from 'react';
 import { CartContext } from '../Context/CartContext';
 import Cart from './Cart';
-import { addDoc, collection, doc, Timestamp } from 'firebase/firestore';
+import { addDoc, collection, Timestamp } from 'firebase/firestore';
 import { db } from '../../utils/firebase';
 import PopUp from '../PopUp/PopUp';
 
@@ -11,7 +11,8 @@ const CartContainer = () => {
     const cartContext = useContext(CartContext);
     const productsInCart = cartContext.productsInCart;
     const [popup, setPopup] = useState(false)
-    const [order, setOrder] = useState({name: '', phone: '', email:'', street: '', streetnumber: '', postalcode: ''})
+    const [order, setOrder] = useState({name: '', phone: '', email:'', street: '', streetnumber: '', postalcode: '',  total: cartContext.getTotalPrice()})
+
     const campos = [
         {title:"Nombre y Apellido", type:"text", inputName:"name"},
         {title:"Telefono",type:"text", inputName:"phone"},
@@ -28,15 +29,15 @@ const CartContainer = () => {
         e.preventDefault();
         const newOrder = {
             buyer:{
-                Nombre: order.name,
-                Telefono: order.phone,
-                Email: order.email,
-                Calle: order.street,
-                NroCalle: order.streetnumber,
-                Cp: order.postalcode
+                nombre: order.name,
+                telefono: order.phone,
+                email: order.email,
+                calle: order.street,
+                nroCalle: order.streetnumber,
+                cp: order.postalcode,
             },
             products: productsInCart,
-            total: cartContext.getTotalPrice(),
+            total: order.total,
             date: Timestamp.fromDate(new Date())
         }
         console.log('new order', newOrder);
@@ -47,7 +48,6 @@ const CartContainer = () => {
         console.log('Orden de compra: ', orderId);
         setPopup(true);
     }
-
     return <>
         <div className='cartContainer'>
             <div className='cartList'>
@@ -84,30 +84,22 @@ const CartContainer = () => {
                     {
                         <button
                             className='btn btnCheckout'
-                            disabled={!(order.name !== '' && order.email !== "")}
+                            disabled={!(order.name !== '' && order.email !== "" && order.phone !== "" && order.street !== "")}
                             onClick={(evt) => sendOrder(evt)}>
                             Finalizar Compra
                         </button>  
                     }
                 </form>
-            </div>        
-        </div> 
-        <PopUp trigger={popup} setTrigger={setPopup}>
-            <h3>Su orden de compra fue creada con exito</h3>
-            <hr /><br />
-            <p>Orden de compra Nro {order.id}</p>
-            <br /><hr />
-            <h4>Datos de facturacion</h4>
-            <br />
-            <p>Nombre: {order.name}</p>
-            <p>Telefono: {order.phone}</p>
-            <p>Email: {order.email}</p>
-            <p>Calle: {order.street}</p>
-            <p>Nro de calle: {order.streetnumber}</p>
-            <p>CP: {order.postalcode}</p>
-            <br />
-            <p>Total: {cartContext.getTotalPrice()}</p>
-        </PopUp>                   
+            </div>
+            {
+                popup
+                ? <div className='popup'>
+                    <PopUp setPopup={setPopup} order={order}/>
+                </div>
+                : ""
+            }   
+        </div>
+                       
     </>
 };
 export default CartContainer;
